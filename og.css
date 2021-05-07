@@ -1,5 +1,9 @@
 /*Last Updated 2021-5-2*/
 
+* {
+    border-radius: 0 !important;
+}
+
 #aHolder, #endAContainer {
     display: none !important;
 }
@@ -105,7 +109,7 @@
     display: none !important;
 }
 
-#streamContainer {
+#tlInfHold {
     display: none !important;
 }
 
@@ -225,27 +229,7 @@
 }
 
 .button.lgn {
-    font-size: 0px;
-    position: fixed;
-    top: 19%;
-    right: 50%;
-    transform: translate(50%, 0);
-    height: 30px;
-    width: 170px !important;
-    background: unset!Important;
-    box-shadow: unset!important;
-}
-
-.button.lgn .material-icons {
-    display: none !important
-}
-
-.button.lgn:after {
-    display:block;
-    content: "ACCOUNT";
-    font-size: 21px;
-    color: #f5c564;
-    text-shadow: 0px 3px 0px #caa355;
+    display: none;
 }
 
 /*menu window*/
@@ -259,8 +243,16 @@
     border-image-slice: 1;
 }
 
+#menuWindow[style="overflow-y: auto; width: 810px;"], #menuWindow[style="overflow-y: auto; width: 800px;"] {
+    width: 705px !important;
+}
+
 #menuWindow::-webkit-scrollbar {
     display: none !important;
+}
+
+div[style="display:inline-block;vertical-align:top;width:560px;margin-left:10px"] {
+    width: 575px !important;
 }
 
 #menuWindow div[style="color:rgba(0,0,0,0.3);margin-top:-5px;margin-bottom:10px"] {
@@ -345,9 +337,103 @@
     border-radius: 0;
 }
 
+#selectorContainer {
+    display: flex;
+    height: auto;
+    width: -webkit-fill-available;
+    justify-content: space-between;
+    filter: none;
+    background-color: #fff;
+    z-index: 2;
+    padding: 0 20px;
+    margin-bottom: 20px;
+}
+
+.selectorItem {
+    left: 0;
+    transform: unset;
+    background-color: transparent !important;
+    filter: none !important;
+}
+
+#customizeContainer {
+    float: unset;
+    width: 100%;
+}
+
+.selectorItem {
+    margin: 0;
+    left: 0;
+    transform: unset;
+    background-color: transparent !important;
+    filter: none !important;
+}
+
+.selectorItem .selectorIcon {
+    filter: drop-shadow(0px 0px 0px #000);
+}
+
+.selectorLabel {
+    text-shadow: none;
+    color: rgba(0,0,0,0.5);
+}
+
+.custContainer {
+    border-radius: 0;
+    border: none;
+    background-color: rgba(0,0,0,0.12);
+}
+
+.custContainer {
+    border-radius: 0;
+    border: none;
+    background-color: transparent !important;
+    box-shadow: none;
+    width: -webkit-fill-available !important;
+    height: 42px;
+    padding: 0;
+    margin: 0;
+    margin-top: 3px;
+    pointer-events: none;
+}
+
+.custIcon {
+    display: none;
+}
+
+.settLabel {
+    right: 0;
+    bottom: 0;
+    font-size: 22px;
+    text-shadow: none;
+    pointer-events: all;
+}
+
+.settLabel[style="color:#efefef"] {
+    color: rgba(0,0,0,0.5) !important;
+}
+
+.settLabel:hover {
+    text-decoration: underline;
+}
+
+.settSmall {
+    font-size: 22px;
+    margin: 0 !important;
+}
+
+.selRandom {
+    display: none;
+}
+
+.custIconSpray {
+    display: none;
+}
+
 .classWeap {
     color: rgba(0,0,0,0.5);
     text-align: unset;
+    transition-duration: 0.25s;
 }
 
 .classCard {
@@ -360,11 +446,17 @@
     background-color: transparent;
     padding: 0;
     border-radius: 0;
-    transition-duration: 0.5s;
+    transition-duration: 0.25s;
+    filter: none;
+    pointer-events: none;
 }
 
 .classCard:hover {
-    text-indent: 100%;
+    color: transparent;
+}
+
+.classCard:hover> .classWeap {
+    color: transparent;
 }
 
 .classImgC {
@@ -375,6 +467,7 @@
     border-radius: 0;
     background-color: rgba(0,0,0,0.25);
     margin-top: 0;
+    z-index: 2 !important;
 }
 
 .classCard::after {
@@ -391,10 +484,11 @@
     font-size: 50px;
     text-align: center;
     line-height: 80px;
+    pointer-events: all;
 }
 
 .classCard:hover>.classLvl {
-    transform: translateX(0px);
+    opacity: 1;
 }
 
 .classLvl {
@@ -403,8 +497,8 @@
     left: 100px;
     text-indent: 0;
     color: rgba(0,0,0,0.5);
-    transform: translateX(calc(-100px + -100%));
-    transition-duration: 0.5s;
+    opacity: 0;
+    transition-duration: 0.25s;
 }
 
 .classXPBar {
@@ -415,17 +509,84 @@
     border-radius: 0;
     background-color: rgba(0,0,0,0.25);
     height: 25px;
-    transform: translateX(calc(-100px - 100%));
-    transition-duration: 0.5s;
+    opacity: 0;
+    transition-duration: 0.25s;
 }
 
 .classCard:hover>.classXPBar {
-    transform: translateX(0);
+    opacity: 1;
 }
 
 .clsXPBarC {
     height: 17px;
     background-color: #fff;
+}
+
+#menuWindow[style="overflow-y: auto; width: 877px;"] {
+    width: 705px !important;
+}
+
+.skinCard {
+    width: -webkit-fill-available;
+    text-align: unset;
+    height: 80px !important;
+    text-indent: 100px;
+    text-shadow: none;
+    color: rgba(0,0,0,0.5);
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+    transition-duration: 0.25s;
+    border: none !important;
+    margin-left: 0;
+    margin-right: 0;
+    pointer-events: none;
+}
+
+.skinCard::after {
+    content: "play_arrow";
+    font-family: material-icons;
+    color: #fff;
+    background-color: var(--blue);
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 80px;
+    height: 80px;
+    text-indent: 0;
+    font-size: 50px;
+    text-align: center;
+    line-height: 80px;
+    pointer-events: all;
+}
+
+.skinCard:hover {
+    background-color: transparent;
+}
+
+.skinImg, .secImg, .skinImgC {
+    margin-top: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 70px;
+    padding: 5px;
+    background-color: rgba(0,0,0,0.25);
+}
+
+.itemOwn {
+    text-align: left;
+    margin-top: 5px;
+    color: rgba(0,0,0,0.5);
+    font-size: 20px;
+}
+
+.itemCnt {
+    display: none;
+}
+
+.skinRandom {
+    display: none;
 }
 
 /*maps and mods*/
@@ -444,6 +605,19 @@
 }
 
 /*shop*/
+
+#menuWindow[style="overflow-y: auto; width: 960px;"] {
+    width: 705px !important;
+}
+
+#storeList {
+    white-space: break-spaces;
+}
+
+.prizeWheelTable {
+    width: 100%;
+    margin-left: 0;
+}
 
 .shopCard {
     width: -webkit-fill-available;
@@ -591,6 +765,13 @@ input[type=color] {
 
 .countIcon {
     border-radius: 0;
+    background-color: rgba(0,0,0,0.2);
+    font-size: 25px;
+}
+
+#killsIcon, #deathsIcon, #streakIcon, #kdIcon {
+    width: 35px;
+    height: 35px;
 }
 
 /*terms*/
