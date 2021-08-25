@@ -59,6 +59,10 @@
     font-size: 25px;
 }
 
+#instructionsUpdate {
+    background-color: transparent;
+}
+
 /*Section II: Chat UI*/
 
 #chatHolder[style="bottom: 148px;"] {
