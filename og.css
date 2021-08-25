@@ -424,7 +424,7 @@
     margin-bottom: 8px !important;
 }
 
-.settName {
+.settName, .settNameSmall {
     color: rgba(0,0,0,0.5) !important;
     font-size: 22px;
     margin: 0;
