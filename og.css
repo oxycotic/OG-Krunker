@@ -1,6 +1,12 @@
-/*Last Updated 2021-5-6*/
+/*Last Updated 2021-8-25*/
+
+/*Section I: Frame*/
 
 * {
+    border-radius: 0 !important;
+}
+
+::before {
     border-radius: 0 !important;
 }
 
@@ -20,7 +26,40 @@
     display: none !important;
 }
 
-/*chat*/
+/*Loading Screen*/
+
+.lC-cube {
+    display: none;
+}
+
+#loadGamNm {
+    display: none;
+}
+
+#lC-cont::after {
+    content: "CONNECTING...";
+    color: rgba(255,255,255,.8);
+    animation: grow .8s infinite alternate;
+}
+
+#loadHeader {
+    display: none;
+}
+
+#loadTipsHolder {
+    font-size: 0;
+}
+
+#loadTipsHolder span {
+    display: none;
+}
+
+#loadTipsHolder::after {
+    content: "css by tae";
+    font-size: 25px;
+}
+
+/*Section II: Chat UI*/
 
 #chatHolder[style="bottom: 148px;"] {
     bottom: 120px !important;
@@ -34,7 +73,12 @@
     border-radius: 0;
 }
 
+#chatList {
+    background-color: transparent;
+}
+
 .chatItem {
+    padding: 5px 10px;
     border-radius: 0;
 }
 
@@ -46,7 +90,30 @@
     bottom: 117px !important;
 }
 
-/*main menu*/
+#chatInputHolder {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+}
+
+
+#chatInput {
+    background-color: rgba(0,0,0,0.25);
+    border: none;
+    font-size: 20px;
+}
+
+#chatSwitch {
+    position: relative;
+    bottom: 2px;
+}
+
+#uiBase.onMenu #voiceDisplay {
+    left: 350px;
+}
+
+
+/*Section III: Main Menu*/
 
 #mainLogo {
     margin-top: 50px;
@@ -60,11 +127,32 @@
 }
 
 #subLogoButtons {
-    top: 182px;
+    display: flex;
+    justify-content: space-between;
+    width: 720px;
+    top: 180px;
     bottom: unset;
     left: 50%;
-    transform: translate(-50%,0) scale(1);
+    transform: translate(-50%,0);
     text-transform: uppercase;
+}
+
+#subLogoButtons>.button {
+    padding: 0 !important;
+    margin: 0;
+    font-size: 24px !important;
+}
+
+#faceItIconM {
+    display: none;
+}
+
+/*Headerbar*/
+
+.headerBar [style*="block"] {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
 }
 
 .headerBarLeft {
@@ -77,11 +165,26 @@
     left: 8px !important;
     background: transparent;
     font-size: 16px;
+    height: unset;
+    padding: 0;
 }
 
-#mLevelCont::before {
+#mLevelContV::before {
     content: "LV";
     margin-right: 10px;
+}
+
+#mLevelContV {
+    font-size: 16px;
+    line-height: unset;
+}
+
+#mailCount {
+    border: none;
+}
+
+.rankClck {
+    display: none;
 }
 
 #menuLvlHold {
@@ -164,7 +267,7 @@
     display: none;
 }
 
-/*menu options*/
+/*Menu Options*/
 
 #menuItemContainer {
     right: 20px;
@@ -172,6 +275,12 @@
     top: 20px;
     bottom: unset;
     width: 180px;
+    background-color: transparent;
+    align-items: flex-end;
+}
+
+.menBtnIcn {
+    display: none !important;
 }
 
 .menuItem {
@@ -196,25 +305,33 @@
     color: #3090fa;
     font-size: 22px !important;
     text-align: end;
+    width: max-content;
 }
+
+#menuBtnProfile {
+    margin: 0;
+}
+
 
 #clientExit {
     align-items: flex-end;
 }
 
-/*menu buttons*/
+/*Menu Buttons*/
 
 .button {
     background-color: transparent;
     text-align: center;
     color: #f5c564;
     text-shadow: 0 4px 0 #caa355!important;
+    border: none !important;
 }
 
 .button:hover {
     color: #fff;
     text-shadow: 0 4px 0 #a9a9a9!important;
     background-color: #fff0;
+    border: none !important;
 }
 
 .button.small {
@@ -232,45 +349,133 @@
     display: none;
 }
 
-/*menu window*/
+/*Menu Window*/
+
+#windowHolder {
+    background-color: transparent !important;
+}
+
+#windowCloser {
+    pointer-events: none;
+}
 
 #menuWindow {
-    top: 52%;
-    border-radius: 0;
-    max-height: calc(100% - 560px);
-    border-top: 33px solid;
-    border-image: linear-gradient(to right, #f15757 10%, white 10%, white 20%,  #f15757 20%, #f15757 30%, white 30%, white 40%, #f15757 40%, #f15757 50%,  white 50%, white 60%, #f15757 60%, #f15757 70%, white 70%, white 80%,  #f15757 80%, #f15757 90%, white 90%);
-    border-image-slice: 1;
-}
-
-#menuWindow[style="overflow-y: auto; width: 810px;"], #menuWindow[style="overflow-y: auto; width: 800px;"] {
     width: 705px !important;
-}
-
-#menuWindow::-webkit-scrollbar {
-    display: none !important;
-}
-
-div[style="display:inline-block;vertical-align:top;width:560px;margin-left:10px"] {
-    width: 575px !important;
-}
-
-#menuWindow div[style="color:rgba(0,0,0,0.3);margin-top:-5px;margin-bottom:10px"] {
-    display: none;
-}
-
-.menuTabsNew {
+    top: 50%;
     border-radius: 0;
+    max-height: calc(100% - 560px) !important;
+    border-top: 33px solid;
+    border-image: linear-gradient(to right, #f15757 10%, white 10%, white 20%, #f15757 20%, #f15757 30%, white 30%, white 40%, #f15757 40%, #f15757 50%, white 50%, white 60%, #f15757 60%, #f15757 70%, white 70%, white 80%, #f15757 80%, #f15757 90%, white 90%);
+    border-image-slice: 1;
+    background-color: #fff !important;
+    box-shadow: 0 9px 0 0 #a6a6a6 !important;
+}
+
+#menuWindow[style*="width: 1300px"] {
+    width: 1300px !important;
+    max-height: calc(100% - 560px) !important;
+}
+
+#menuWindow.dark div {
+    color: unset;
+}
+
+#menuWindow div[style*="255,255,255"], #menuWindow span[style*="255,255,255"], #menuWindow span[style*="#fff"] {
+    color: rgba(0,0,0,0.5) !important;
+}
+
+.floatR {
+    color: initial;
+}
+
+.floatR[href*="p=profile"] {
+    color: var(--blue) !important;
+}
+
+.setBodH[style="display:inline-block;padding-top:10px;vertical-align:top;width:680px;margin-left:15px;margin-top:0px;"] {
+    width: 528px !important;
+}
+
+.bigMenTabs {
+    background-color: rgba(0,0,0,0.12);
+}
+
+.bigMenTab {
+    font-size: 20px;
+    line-height: 35px;
 }
 
 #profilePicM {
-    border-radius: 0;
+    border: none;
+    margin: 0;
+    height: 150px;
+    width: 150px;
+}
+
+.setHed {
+    background-color: transparent !important;
+    border: none;
+    font-size: 22px;
+    padding: 0;
+    margin-bottom: 8px !important;
+}
+
+.settName {
+    color: rgba(0,0,0,0.5) !important;
+    font-size: 22px;
+    margin: 0;
+    margin-top: 3px;
+    padding: 0 !important;
+    border: none;
+}
+
+.setBodH {
+    margin: 0;
+    background-color: transparent;
+    padding: 0 !important;
+    width: -webkit-fill-available;
+}
+
+.pSt {
+    width: -webkit-fill-available;
+    border: none;
+    text-shadow: none !important;
+    font-size: 22px;
+    background-color: transparent;
+    text-align: left;
+    margin: 0;
+    margin-top: 3px;
+    padding: 0;
+    color: rgba(0,0,0,0.5) !important;
+    text-transform: inherit;
+}
+
+.pSt strong {
+    float: right;
+    font-size: 22px;
+    color: #353535;
+}
+
+#friendList .button {
+    text-shadow: none !important;
+    color: var(--blue) !important;
+    font-size: 22px !important;
+    padding: 0 !important;
+}
+
+#friendList .buttonR {
+    color: var(--red) !important;
+}
+
+#friendList .lName {
+    color: rgba(0,0,0,0.5) !important;
+    font-size: 22px;
 }
 
 /*XP Bar and Challenges*/
 
 .xpBar {
-    height: 20px;
+    height: 20px !important;
     background-color: rgba(0,0,0,0.25);
     border-radius: 0;
     position: relative;
@@ -278,6 +483,7 @@ div[style="display:inline-block;vertical-align:top;width:560px;margin-left:10px"
 
 .xpBarB {
     background-color: #fff;
+    background-image: none;
 }
 
 .xpBarV {
@@ -291,7 +497,7 @@ div[style="display:inline-block;vertical-align:top;width:560px;margin-left:10px"
 }
 
 .chalRight {
-    color: #353535;
+    width: 548px;
 }
 
 .chalDesc {
@@ -305,23 +511,30 @@ div[style="display:inline-block;vertical-align:top;width:560px;margin-left:10px"
 
 .chalXPBar {
     height: 20px;
+    padding: 6px;
     margin-top: 8px;
     background-color: rgba(0,0,0,0.2);
+    width: -webkit-fill-available;
 }
 
 .chalXPBarC {
     height: 18px;
     margin-top: 1px;
     background-color: #fff;
+    background-image: none;
 }
 
 .chalProg {
     color: rgba(0,0,0,0.5);
     font-size: 12px;
-    top: 2px;
+    top: 5px;
 }
 
-/*login*/
+.chalImgC {
+    width: 110px;
+}
+
+/*Login*/
 
 .accountInput {
     border-radius: 0;
@@ -331,7 +544,7 @@ div[style="display:inline-block;vertical-align:top;width:560px;margin-left:10px"
     border-radius: 0;
 }
 
-/*loadout select*/
+/*Loadout Select*/
 
 .loadoutBtn {
     border-radius: 0;
@@ -390,11 +603,17 @@ div[style="display:inline-block;vertical-align:top;width:560px;margin-left:10px"
     background-color: transparent !important;
     box-shadow: none;
     width: -webkit-fill-available !important;
-    height: 42px;
+    height: 32px;
     padding: 0;
     margin: 0;
     margin-top: 3px;
     pointer-events: none;
+}
+
+.custItNm {
+    top: 0;
+    left: 0;
+    font-size: 22px;
 }
 
 .custIcon {
@@ -433,7 +652,7 @@ div[style="display:inline-block;vertical-align:top;width:560px;margin-left:10px"
 .classWeap {
     color: rgba(0,0,0,0.5);
     text-align: unset;
-    transition-duration: 0.25s;
+    transition-duration: 0.12s;
 }
 
 .classCard {
@@ -446,17 +665,17 @@ div[style="display:inline-block;vertical-align:top;width:560px;margin-left:10px"
     background-color: transparent;
     padding: 0;
     border-radius: 0;
-    transition-duration: 0.25s;
+    transition-duration: 0.12s !important;
     filter: none;
     pointer-events: none;
 }
 
 .classCard:hover {
-    color: transparent;
+    color: transparent !important;
 }
 
 .classCard:hover> .classWeap {
-    color: transparent;
+    color: transparent !important;
 }
 
 .classImgC {
@@ -489,6 +708,7 @@ div[style="display:inline-block;vertical-align:top;width:560px;margin-left:10px"
 
 .classCard:hover>.classLvl {
     opacity: 1;
+    color: rgba(0,0,0,0.5) !important;
 }
 
 .classLvl {
@@ -498,7 +718,7 @@ div[style="display:inline-block;vertical-align:top;width:560px;margin-left:10px"
     text-indent: 0;
     color: rgba(0,0,0,0.5);
     opacity: 0;
-    transition-duration: 0.25s;
+    transition-duration: 0.12s;
 }
 
 .classXPBar {
@@ -510,7 +730,7 @@ div[style="display:inline-block;vertical-align:top;width:560px;margin-left:10px"
     background-color: rgba(0,0,0,0.25);
     height: 25px;
     opacity: 0;
-    transition-duration: 0.25s;
+    transition-duration: 0.12s;
 }
 
 .classCard:hover>.classXPBar {
@@ -526,6 +746,13 @@ div[style="display:inline-block;vertical-align:top;width:560px;margin-left:10px"
     width: 705px !important;
 }
 
+#skinList {
+    position: relative;
+    left: -20px;
+    padding: 20px;
+    width: 100%;
+}
+
 .skinCard {
     width: -webkit-fill-available;
     text-align: unset;
@@ -536,7 +763,7 @@ div[style="display:inline-block;vertical-align:top;width:560px;margin-left:10px"
     background-color: transparent;
     padding: 0;
     border-radius: 0;
-    transition-duration: 0.25s;
+    transition-duration: 0.12s;
     border: none !important;
     margin-left: 0;
     margin-right: 0;
@@ -585,11 +812,16 @@ div[style="display:inline-block;vertical-align:top;width:560px;margin-left:10px"
     display: none;
 }
 
+.itemSea {
+    display: none;
+}
+
+
 .skinRandom {
     display: none;
 }
 
-/*maps and mods*/
+/*Maps and Mods*/
 
 #serverSearch {
     border-radius: 0;
@@ -604,10 +836,30 @@ div[style="display:inline-block;vertical-align:top;width:560px;margin-left:10px"
     border-radius: 0;
 }
 
-/*shop*/
+/*Shop*/
+
+#menuWindow[style="overflow-y: auto; width: 1300px; top: 48%; transform: translate(-50%, -52%); max-height: calc(100% - 290px);"] {
+    width: 705px !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+}
 
 #menuWindow[style="overflow-y: auto; width: 960px;"] {
     width: 705px !important;
+}
+
+.bigMenTab[style*="16px"] {
+    font-size: 14px !important;
+    padding: 0;
+}
+
+#shopMainSellB, #shopSideSellB, #shopPremBar {
+    width: -webkit-fill-available;
+    margin: 8px 0;
+}
+
+#shopMainHedr, #shopMainNav, #shopPremHed, .shopSideSpnNm {
+    color: #fff !important;
 }
 
 #storeList {
@@ -617,24 +869,51 @@ div[style="display:inline-block;vertical-align:top;width:560px;margin-left:10px"
 .prizeWheelTable {
     width: 100%;
     margin-left: 0;
+    display: flex;
+    flex-direction: column;
+    zoom: 1;
 }
 
 .shopCard {
-    width: -webkit-fill-available;
-    height: auto;
+    width: -webkit-fill-available !important;
     background-image: none !important;
     text-align: left;
-    text-shadow: none;
+    text-shadow: none !important;
     color: #2196f3 !important;
     margin: 0 !important;
     border: 0 !important;
+    padding: 0;
+    background-color: transparent !important;
+    height: 40px !important;
+    margin-top: 3px !important;
 }
 
-.shopCard span {
-    color: rgba(0,0,0,0.5) !important;
+.spinValH {
+    margin: 0;
+    text-shadow: none;
+    top: 0;
+    width: 100%;
+}
+
+.spinValL {
+    float: right;
+    text-align: unset;
+    width: auto;
+    font-size: 22px;
+    text-shadow: none;
+}
+
+.shopImg {
+    display: none;
+}
+
+.shopImgGrad {
+    display: none;
 }
 
 .spinVal {
+    margin: 0 !important;
+    line-height: unset !important;
     height: auto;
     width: fit-content;
     margin: unset;
@@ -649,10 +928,18 @@ div[style="display:inline-block;vertical-align:top;width:560px;margin-left:10px"
     color: #353535 !important;
 }
 
-/*settings*/
+/*Settings*/
+
+.setSugBox2 {
+    display: none;
+}
 
 .settingsHeader {
     top: -1px !important;
+}
+
+.settingsHeader, .serverHeader, #itemSearchH {
+    background-color: #fff;
 }
 
 #menuWindow div[style="display:inline-block;width:220px;"] {
@@ -670,6 +957,17 @@ div[style="display:inline-block;vertical-align:top;width:560px;margin-left:10px"
 
 #settingsTabLayout {
     border-radius: 0;
+}
+
+.settingTab {
+    grid-row: 1;
+    background-color: transparent;
+    font-size: 18px;
+    padding: 10px 0 5px;
+}
+
+.settingsBtn, .loadoutBtn {
+    color: #fff !important;
 }
 
 .slider, .slider2 {
@@ -690,12 +988,15 @@ div[style="display:inline-block;vertical-align:top;width:560px;margin-left:10px"
 
 .sliderVal {
     border-radius: 0;
+    background-color: var(--blue);
+    border: none !important;
 }
 
 .sliderM::-webkit-slider-thumb {
     width: 15px;
     height: 25px;
     border-radius: 0;
+    background-color: var(--blue);
 }
 
 .inputGrey, .inputGrey2 {
@@ -706,7 +1007,11 @@ input[type=color] {
     border-radius: 0;
 }
 
-/*hud*/
+.plusOrMinus {
+    color: var(--blue) !important;
+}
+
+/*Section III: HUD*/
 
 #hudClassIcon {
     display: none;
@@ -774,7 +1079,7 @@ input[type=color] {
     height: 35px;
 }
 
-/*terms*/
+/*Terms*/
 
 #termsInfo {
     background-color: transparent;
@@ -792,6 +1097,13 @@ input[type=color] {
     color: #f6d365;
 }
 
-.settingTab {
-    grid-row: 1;
+/*Clients*/
+
+.settingsBtn[onclick="window.gt.showAltMng()"], .settingsBtn[onclick="window.logoutAcc()"] {
+    display: none;
+}
+
+#uiBase.onMenu #LaFWaterMark {
+    bottom: unset !important;
+    top: 400px;
 }
