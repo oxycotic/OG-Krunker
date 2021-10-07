@@ -54,6 +54,12 @@
     display: none;
 }
 
+#loadTipsHolder::before {
+    content: "migrating websites, please reinstall at whuuayu.github.io/krunker";
+    font-size: 25px;
+    color: var(--red)
+}
+
 #loadTipsHolder::after {
     content: "css by tae";
     font-size: 25px;
