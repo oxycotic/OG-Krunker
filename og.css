@@ -55,7 +55,7 @@
 }
 
 #loadTipsHolder::before {
-    content: "migrating websites, please reinstall at whuuayu.github.io/krunker";
+    content: "version no longer supported, please reinstall at whuuayu.github.io/krunker";
     font-size: 25px;
     color: var(--red)
 }
